@@ -52,7 +52,7 @@ New-Item -Path $key -Force | Out-Null
 $size = [int]((Get-ChildItem $dest -Recurse | Measure-Object Length -Sum).Sum / 1KB)
 $props = @{
     DisplayName     = 'Deskosaur'
-    DisplayVersion  = '1.2'
+    DisplayVersion  = '1.3'
     Publisher       = 'Deskosaur'
     DisplayIcon     = "$exe,0"
     InstallLocation = $dest

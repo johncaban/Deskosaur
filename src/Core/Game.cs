@@ -294,7 +294,7 @@ namespace Deskosaur
             // orb idle sparkles
             if (t % 12 == 0)
                 foreach (Orb o in W.Orbs) if (o.Cool == 0) fx.Spawn(PT.Glint, o.X + Particles.R(-6, 6), o.Y + Particles.R(-7, 7), 0, -0.1f, 14, G.Hex(0x9affc0), 1, 0);
-            if (t % 20 == 0)
+            if (t % 48 == 0)
                 foreach (Pickup pk in W.Pickups) if (!pk.Taken && pk.Kind == 1) fx.Spawn(PT.Glint, pk.X + Particles.R(-4, 4), pk.Y + Particles.R(-5, 5), 0, 0, 14, G.Hex(0xfff0a0), 1, 0);
         }
 
@@ -492,8 +492,9 @@ namespace Deskosaur
                 if (pk.Kind == 1)
                 {
                     bool had = (save.Amber[Level] & (1 << pk.Index)) != 0;
-                    if (had && ((t / 4) & 1) == 0) { Ui.Amber(s, (int)pk.X - 2, (int)pk.Y - 3 + bob, false); continue; }
-                    G.DiscD(s, (int)pk.X, (int)pk.Y + bob, 6, G.Hex(0xffb030), 3 + (int)(Math.Sin(t * 0.1f) * 2 + 2));
+                    // slow, steady "breathing" glow (about 4 s per cycle) instead of a fast blink
+                    float breath = (float)(Math.Sin(t * 0.026f + pk.X * 0.05f) * 0.5 + 0.5);
+                    G.DiscD(s, (int)pk.X, (int)pk.Y + bob, 6, G.Hex(0xffb030), 3 + (int)Math.Round(breath * 4)); // original glow, just slow
                     Ui.Amber(s, (int)pk.X - 2, (int)pk.Y - 3 + bob, true);
                 }
                 else Ui.Gem(s, (int)pk.X - 2, (int)pk.Y - 2 + bob);
