@@ -5,7 +5,7 @@
 # DESKOSAUR
 
 **A pixel dino platformer that runs on your actual Windows desktop.**
-Jump across 20 levels… and across your desktop icons, window title bars and Chrome text boxes.
+Jump across 20 levels and across your desktop icons, window title bars and Chrome text boxes.
 
 ### [⬇ Download for Windows](../../releases/latest)
 
