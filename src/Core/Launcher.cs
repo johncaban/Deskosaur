@@ -423,7 +423,7 @@ namespace Deskosaur
                 }
             }
             Font.TextO(s, "ARROWS + ENTER  OR  MOUSE", 14, H - 12, G.Hex(0x5a5078), Ink, 1);
-            Font.TextO(s, "V1.3", 196, H - 12, G.Hex(0x3a3058), Ink, 1);
+            Font.TextO(s, "V1.3.1", 196, H - 12, G.Hex(0x3a3058), Ink, 1);
         }
 
         void DrawLevels(Surface s, Input inp)

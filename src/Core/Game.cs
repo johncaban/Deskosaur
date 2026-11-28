@@ -723,13 +723,14 @@ namespace Deskosaur
 
         void DrawPause(Surface s, Input inp)
         {
-            int w = 150, h = 108, x = s.W / 2 - w / 2, y = s.H / 2 - h / 2 - 20;
+            int msgW = Font.Measure("KEYBOARD IS FREE WHILE PAUSED", 1);
+            int w = Math.Max(150, msgW + 24), h = 108, x = s.W / 2 - w / 2, y = s.H / 2 - h / 2 - 20;
             Ui.Box(s, x, y, w, h, G.Hex(0x3ee0c8));
             Font.Centered(s, "PAUSED", s.W / 2 + 1, y + 8, G.Hex(0x120c1c), 2);
             Font.Centered(s, "PAUSED", s.W / 2, y + 7, G.Hex(0xffffff), 2);
             string[] labels = { "RESUME", "RESTART LEVEL", "MAIN MENU", "QUIT GAME" };
             for (int i = 0; i < 4; i++)
-                if (Ui.Button(s, inp, labels[i], x + 25, y + 27 + i * 16, w - 50, menuSel == i, t)) pauseClicked = i;
+                if (Ui.Button(s, inp, labels[i], s.W / 2 - 50, y + 27 + i * 16, 100, menuSel == i, t)) pauseClicked = i;
             Font.Centered(s, "KEYBOARD IS FREE WHILE PAUSED", s.W / 2, y + h - 11, G.Hex(0x8a80a8), 1);
         }
 

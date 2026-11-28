@@ -1,5 +1,5 @@
 =====================================================================
-  D E S K O S A U R  -  a desktop platformer            v1.3
+  D E S K O S A U R  -  a desktop platformer          v1.3.1
 =====================================================================
 
 A little pixel dino runs around ON your actual Windows desktop.
